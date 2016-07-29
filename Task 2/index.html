@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<script src="angular.min.js"></script>
+	
+	<script name="package.json"></script>
+	
+	<title>Document</title>
+</head>
+<body>
+<form name="form" novalidate ng-submit="submit()">
+	<div><input type="text" name="name" ng-model="user.name" ng-minlength="3" username required  />
+		
+		 <span ng-show="form.name.$eror.required"> User name is obligatory!</span>
+		 <span ng-show="form.name.$error.minlength"> The name is too short...</span>
+		  <span ng-show="form.name.$error.username">The username have to start with the capital letter!</span>
+		
+	</div>
+	<div><input type="number" ng-model="age" name="age"  min="18" max="55"/><br/>
+	<span ng-show="form.age.$error.min || form.age.$error.max">The age must be between 18 and 55 y.o.</span></div>
+	<input name="date" type="date" ng-model="date"  placeholder="dd.MM.yyyy" date><br>
+<span ng-show="form.date.$error.date">The date is incorrect</span>
+	<input type="submit">
+	</form>
+	<div>Hello {{user.name}}!</div>
+
+
+	<p>Name: {{user.name}}
+		<br>
+		Age: {{age}}
+		<br>
+		Date: {{date| date:'dd.MM.yyyy'}}</p>
+	
+</body>
+<script type="text/javascript" src="scritp.js"></script>
+
+</html>
